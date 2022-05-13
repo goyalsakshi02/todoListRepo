@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/http//goyalsakshi02.github.io/react-deploy/static/css/main.f522c62c.css",
+    "main.js": "/http//goyalsakshi02.github.io/react-deploy/static/js/main.7ff86d3b.js",
+    "static/js/787.28cb0dcd.chunk.js": "/http//goyalsakshi02.github.io/react-deploy/static/js/787.28cb0dcd.chunk.js",
+    "static/media/logo.svg": "/http//goyalsakshi02.github.io/react-deploy/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/http//goyalsakshi02.github.io/react-deploy/index.html",
+    "main.f522c62c.css.map": "/http//goyalsakshi02.github.io/react-deploy/static/css/main.f522c62c.css.map",
+    "main.7ff86d3b.js.map": "/http//goyalsakshi02.github.io/react-deploy/static/js/main.7ff86d3b.js.map",
+    "787.28cb0dcd.chunk.js.map": "/http//goyalsakshi02.github.io/react-deploy/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f522c62c.css",
+    "static/js/main.7ff86d3b.js"
+  ]
+}
