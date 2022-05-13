@@ -16,22 +16,24 @@ class Home extends React.Component {
             if (this.state.todo && this.state.todo.trim() !== '')
             this.setState(state => {
                 const indexData = state.addTodoList.filter( (item) => item.name === this.state.todo);
-
-                if (indexData.length == 0) {
+                if (!indexData.length) {
                     let tempData = {
                         name: state.todo,
                         status: false
                     
                     }
-                    state.addTodoList.push(tempData);
-
-                
+                    // @TODO - use this.setState to update this state, and also keep
+                    // the other states as it is.
+                    return {...state, addTodoList: [...state.addTodoList, { ...tempData }]}
                 }
+                return {...state}
             });
             this.setState({ todo: '' })
         }
-        const handleChange = (i) => {
-            this.setState({ todo: i })
+
+        // TO KEEP IN MIND: always use relevant names of variables
+        const handleChange = (item) => {
+            this.setState({ todo: item })
         }
 
         const handleChangeStatus = (item) => { 
@@ -44,8 +46,7 @@ class Home extends React.Component {
 
         const handleRemove = (id) => {
             let copiedArray = [...this.state.addTodoList]
-            console.log("copiedArray", copiedArray)
-            console.log("item", id)
+    
 
             copiedArray.splice(id,1)
             this.setState({addTodoList:copiedArray})
@@ -55,7 +56,7 @@ class Home extends React.Component {
             <div class="container">
                 <div class="row">
                     <p>Todo List</p>
-                    <input type="text" placeholder="write todo" value={this.state.todo} onChange={(i) => handleChange(i.target.value)} ></input>
+                    <input type="text" placeholder="write todo" value={this.state.todo} onChange={(item) => handleChange(item.target.value)} ></input>
 
                     <button
                         onClick={handleClick}
@@ -63,14 +64,13 @@ class Home extends React.Component {
                 
                     <div class="col-6">
                         {
-                            this.state.addTodoList.map((i,id) => {
-                                console.log("i", i)
+                            this.state.addTodoList.map((item,id) => {
+        
                                 return (
                                     <div 
                                     style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', }}
                                     >
-                                        {console.log("i.status",i.status)}
-                                            <p onClick={() => handleChangeStatus(i)} className={i.status ? 'strikeLine' : '' }>{i.name}</p>
+                                            <p onClick={() => handleChangeStatus(item)} className={item.status ? 'strikeLine' : '' }>{item.name}</p>
                                             <span><button onClick={() => handleRemove(id)} style={{ fontSize: 12 }}>remove</button></span>
                                     </div>
                                 )
